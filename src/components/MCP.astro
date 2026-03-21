@@ -1,0 +1,202 @@
+---
+const capabilities = [
+  'Register datasets and configure schemas',
+  'Upload files for processing',
+  'Trigger and monitor pipeline jobs',
+  'Profile data and get AI insights',
+  'Semantic search across vector databases',
+  'Query PostgreSQL and MongoDB directly',
+];
+
+const agents = ['Claude', 'Cursor', 'OpenClaw', 'Any MCP-compatible agent'];
+const transports = ['stdio', 'SSE (Server-Sent Events)'];
+---
+
+<section id="mcp">
+  <div class="container">
+    <div class="grid-2 mcp-layout">
+      <div class="mcp-info animate-on-scroll">
+        <span class="section-label">Model Context Protocol</span>
+        <h2 class="section-title">
+          Your AI agents are<br />
+          <span class="gradient-text">first-class pipeline operators</span>
+        </h2>
+        <p class="section-subtitle">
+          Datris ships with a native MCP server. Claude, Cursor, OpenClaw, and any
+          MCP-compatible AI agent can register datasets, trigger jobs, search your
+          data, and monitor pipelines — all through natural conversation.
+        </p>
+        <div class="mcp-transports">
+          <span class="mcp-transport-label">Transports:</span>
+          {transports.map((t) => <span class="tag tag-accent">{t}</span>)}
+        </div>
+        <div class="mcp-agents">
+          <span class="mcp-transport-label">Compatible agents:</span>
+          <div class="tag-list">
+            {agents.map((a) => <span class="tag">{a}</span>)}
+          </div>
+        </div>
+      </div>
+
+      <div class="mcp-caps animate-on-scroll" style="transition-delay: 120ms">
+        <div class="mcp-caps-card">
+          <div class="mcp-caps-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            <span>MCP Capabilities</span>
+          </div>
+          <ul class="mcp-caps-list">
+            {capabilities.map((c) => (
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-secondary)" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                {c}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="mcp-example">
+          <div class="mcp-example-label">Example prompt</div>
+          <div class="mcp-example-text">
+            "Upload sales_q4.csv, validate it with the rule <em>'revenue must be positive and date must be in 2024'</em>, then load it into the analytics database."
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .mcp-layout {
+    align-items: start;
+    gap: 64px;
+  }
+
+  .mcp-info .section-subtitle {
+    margin-bottom: 32px;
+  }
+
+  .mcp-transports {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  .mcp-transport-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+
+  .mcp-agents {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+  }
+
+  .tag-accent {
+    background: rgba(0, 180, 255, 0.08);
+    border-color: rgba(0, 180, 255, 0.2);
+    color: var(--accent);
+  }
+
+  .mcp-caps-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .mcp-caps-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .mcp-caps-list {
+    list-style: none;
+    padding: 8px 0;
+  }
+
+  .mcp-caps-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 24px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(99, 179, 237, 0.05);
+    transition: background var(--transition-fast);
+  }
+
+  .mcp-caps-list li:last-child {
+    border-bottom: none;
+  }
+
+  .mcp-caps-list li:hover {
+    background: rgba(0, 180, 255, 0.03);
+  }
+
+  .mcp-caps-list li svg {
+    flex-shrink: 0;
+  }
+
+  .mcp-example {
+    margin-top: 20px;
+    padding: 20px 24px;
+    border-radius: var(--radius-md);
+    background: rgba(0, 180, 255, 0.04);
+    border: 1px solid rgba(0, 180, 255, 0.12);
+  }
+
+  .mcp-example-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+
+  .mcp-example-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .mcp-example-text em {
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  @media (max-width: 1024px) {
+    .mcp-layout {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+  }
+</style>

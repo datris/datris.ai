@@ -1,0 +1,139 @@
+---
+const formats = [
+  { format: 'CSV', input: true, output: true },
+  { format: 'JSON', input: true, output: true },
+  { format: 'XML', input: true, output: false },
+  { format: 'Excel (.xlsx)', input: true, output: false },
+  { format: 'Parquet', input: false, output: true },
+  { format: 'ORC', input: false, output: true },
+  { format: 'PDF', input: true, output: false },
+  { format: 'Word (.docx)', input: true, output: false },
+  { format: 'PowerPoint (.pptx)', input: true, output: false },
+  { format: 'HTML', input: true, output: false },
+  { format: 'Email (.eml)', input: true, output: false },
+  { format: 'EPUB', input: true, output: false },
+  { format: 'Archives (.zip, .tar)', input: true, output: false },
+  { format: 'Plain Text', input: true, output: false },
+];
+---
+
+<section id="formats">
+  <div class="container">
+    <div class="formats-header animate-on-scroll">
+      <span class="section-label">Formats</span>
+      <h2 class="section-title">
+        Speaks every <span class="gradient-text">data language</span>
+      </h2>
+      <p class="section-subtitle">
+        Ingest structured data, unstructured documents, and archives.
+        Output to vector stores, structured stores, or optimized columnar formats.
+      </p>
+    </div>
+
+    <div class="formats-table-wrap animate-on-scroll">
+      <table class="formats-table">
+        <thead>
+          <tr>
+            <th>Format</th>
+            <th>Input</th>
+            <th>Output</th>
+          </tr>
+        </thead>
+        <tbody>
+          {formats.map((f) => (
+            <tr>
+              <td class="format-name">{f.format}</td>
+              <td>
+                {f.input ? (
+                  <span class="check check-yes">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                  </span>
+                ) : (
+                  <span class="check check-no">—</span>
+                )}
+              </td>
+              <td>
+                {f.output ? (
+                  <span class="check check-yes">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                  </span>
+                ) : (
+                  <span class="check check-no">—</span>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+  .formats-header {
+    margin-bottom: 48px;
+  }
+
+  .formats-table-wrap {
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+  }
+
+  .formats-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+
+  .formats-table th {
+    padding: 14px 24px;
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-color);
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .formats-table td {
+    padding: 12px 24px;
+    border-bottom: 1px solid rgba(99, 179, 237, 0.05);
+  }
+
+  .formats-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .formats-table tr:hover td {
+    background: rgba(0, 180, 255, 0.02);
+  }
+
+  .format-name {
+    font-weight: 500;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+  }
+
+  .check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+  }
+
+  .check-yes {
+    color: var(--accent-secondary);
+    background: rgba(0, 229, 160, 0.1);
+  }
+
+  .check-no {
+    color: var(--text-muted);
+  }
+</style>

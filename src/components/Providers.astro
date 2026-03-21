@@ -1,0 +1,78 @@
+---
+const providers = [
+  {
+    name: 'Anthropic Claude',
+    description: 'Claude Opus 4.6, Sonnet 4.6, Haiku, and more',
+    color: '#d4a574',
+    letter: 'A',
+    url: 'https://www.anthropic.com',
+  },
+  {
+    name: 'OpenAI',
+    description: 'GPT-5, GPT-4.1, o3, and embedding models',
+    color: '#10a37f',
+    letter: 'O',
+    url: 'https://openai.com',
+  },
+  {
+    name: 'Ollama',
+    description: 'Run local models — Llama, Mistral, Phi, and more',
+    color: '#f0f0f0',
+    letter: '⊙',
+    url: 'https://ollama.com',
+  },
+];
+---
+
+<section id="providers">
+  <div class="container">
+    <div class="providers-header animate-on-scroll">
+      <span class="section-label">AI Providers</span>
+      <h2 class="section-title">
+        Your choice of <span class="gradient-text">AI model</span>
+      </h2>
+      <p class="section-subtitle">
+        Use cloud AI from Anthropic or OpenAI, or keep everything local with Ollama.
+        No vendor lock-in — switch providers without changing your pipeline config.
+      </p>
+    </div>
+
+    <div class="grid-3 providers-grid">
+      {providers.map((p, i) => (
+        <a href={p.url} target="_blank" rel="noopener" class="card provider-card animate-on-scroll" style={`transition-delay: ${i * 80}ms; text-decoration: none; color: inherit;`}>
+          <div class="provider-logo" style={`--provider-color: ${p.color}`}>
+            {p.letter}
+          </div>
+          <div class="card-title">{p.name}</div>
+          <div class="card-description">{p.description}</div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .providers-header {
+    margin-bottom: 64px;
+  }
+
+  .provider-card {
+    text-align: center;
+    padding: 40px 32px;
+  }
+
+  .provider-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--provider-color);
+  }
+</style>

@@ -1,0 +1,104 @@
+---
+const stack = [
+  { name: 'MinIO', desc: 'Object storage', icon: '🪣', url: 'https://min.io' },
+  { name: 'MongoDB', desc: 'Document database', icon: '🍃', url: 'https://www.mongodb.com' },
+  { name: 'ActiveMQ', desc: 'Message broker', icon: '📨', url: 'https://activemq.apache.org' },
+  { name: 'HashiCorp Vault', desc: 'Secrets management', icon: '🔐', url: 'https://www.vaultproject.io' },
+  { name: 'Apache Kafka', desc: 'Event streaming', icon: '📡', url: 'https://kafka.apache.org' },
+  { name: 'Apache Spark', desc: 'Distributed compute', icon: '⚡', url: 'https://spark.apache.org' },
+];
+---
+
+<section id="infrastructure">
+  <div class="container">
+    <div class="infra-header animate-on-scroll">
+      <span class="section-label">Infrastructure</span>
+      <h2 class="section-title">
+        Self-hosted on <span class="gradient-text">open source</span>
+      </h2>
+      <p class="section-subtitle">
+        Runs anywhere Docker does. Built on proven open-source infrastructure — no
+        proprietary services, no vendor lock-in, no surprise bills.
+      </p>
+    </div>
+
+    <div class="grid-3 infra-grid">
+      {stack.map((s, i) => (
+        <a href={s.url} target="_blank" rel="noopener" class="card infra-card animate-on-scroll" style={`transition-delay: ${i * 60}ms; text-decoration: none; color: inherit;`}>
+          <div class="infra-icon">{s.icon}</div>
+          <div>
+            <div class="card-title">{s.name}</div>
+            <div class="card-description">{s.desc}</div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="infra-cta animate-on-scroll">
+      <div class="infra-cta-inner">
+        <code class="infra-cmd">
+          <span class="t-muted">$</span> docker compose up -d
+        </code>
+        <p class="infra-cta-text">One command. Full pipeline. Your infrastructure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .infra-header {
+    margin-bottom: 64px;
+  }
+
+  .infra-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px;
+  }
+
+  .infra-icon {
+    font-size: 1.5rem;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
+    background: rgba(0, 180, 255, 0.06);
+    border: 1px solid rgba(0, 180, 255, 0.12);
+  }
+
+  .infra-cta {
+    margin-top: 48px;
+  }
+
+  .infra-cta-inner {
+    text-align: center;
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+  }
+
+  .infra-cmd {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: var(--radius-sm);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+
+  .infra-cta-text {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+
+  .t-muted {
+    color: var(--text-muted);
+  }
+</style>

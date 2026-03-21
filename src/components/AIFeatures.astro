@@ -1,0 +1,92 @@
+---
+const features = [
+  {
+    icon: '🔌',
+    title: 'MCP Server',
+    subtitle: 'AI Agent Integration',
+    description:
+      'First open-source pipeline with native Model Context Protocol. Agents can register datasets, upload files, trigger jobs, profile data, and run searches.',
+  },
+  {
+    icon: '✓',
+    title: 'AI Data Quality',
+    subtitle: 'Plain English Validation',
+    description:
+      'Validate with plain English rules via aiRule. AI evaluates every row using reasoning and domain knowledge — no regex required.',
+  },
+  {
+    icon: '⚡',
+    title: 'AI Transformations',
+    subtitle: 'Natural Language Transforms',
+    description:
+      'Describe row transforms in natural language. Date conversion, categorization, entity extraction — no code needed.',
+  },
+  {
+    icon: '📐',
+    title: 'AI Schema Generation',
+    subtitle: 'Auto-Config from Any File',
+    description:
+      'Upload any CSV, JSON, or XML and get a complete dataset configuration auto-generated. Skip the boilerplate entirely.',
+  },
+  {
+    icon: '📊',
+    title: 'AI Data Profiling',
+    subtitle: 'Instant Data Insights',
+    description:
+      'Upload a file and get summary statistics, quality issues, and suggested validation rules — all powered by AI analysis.',
+  },
+  {
+    icon: '🔍',
+    title: 'AI Error Explanation',
+    subtitle: 'Root Cause Analysis',
+    description:
+      'When jobs fail, AI analyzes the error chain and explains the root cause in plain English. No more digging through stack traces.',
+  },
+];
+---
+
+<section id="features">
+  <div class="container">
+    <div class="features-header animate-on-scroll">
+      <span class="section-label">AI-Powered</span>
+      <h2 class="section-title">
+        Intelligence at <span class="gradient-text">every stage</span>
+      </h2>
+      <p class="section-subtitle">
+        Every step of your data pipeline is enhanced with AI. From ingestion to
+        delivery, Datris makes data engineering accessible through natural
+        language.
+      </p>
+    </div>
+    <div class="grid-3 features-grid">
+      {
+        features.map((f, i) => (
+          <div class="card animate-on-scroll" style={`transition-delay: ${i * 80}ms`}>
+            <div class="card-icon">{f.icon}</div>
+            <div class="card-title">{f.title}</div>
+            <div class="card-subtitle">{f.subtitle}</div>
+            <div class="card-description">{f.description}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .features-header {
+    margin-bottom: 64px;
+  }
+
+  .features-grid {
+    margin-top: 0;
+  }
+
+  .card-subtitle {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--accent);
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+</style>

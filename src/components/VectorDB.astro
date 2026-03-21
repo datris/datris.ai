@@ -1,0 +1,221 @@
+---
+const vectorDBs = [
+  { name: 'Qdrant', color: '#dc2626', url: 'https://qdrant.tech' },
+  { name: 'Weaviate', color: '#10b981', url: 'https://weaviate.io' },
+  { name: 'Milvus', color: '#3b82f6', url: 'https://milvus.io' },
+  { name: 'Chroma', color: '#f59e0b', url: 'https://www.trychroma.com' },
+  { name: 'pgvector', color: '#8b5cf6', url: 'https://github.com/pgvector/pgvector' },
+];
+
+const chunkingStrategies = ['Fixed-size', 'Sentence', 'Paragraph', 'Recursive'];
+const embeddingProviders = ['OpenAI', 'Ollama (local)'];
+const documentTypes = ['PDF', 'Word', 'PowerPoint', 'Excel', 'HTML', 'Email', 'EPUB', 'Plain Text'];
+---
+
+<section id="vector-db">
+  <div class="container">
+    <div class="vdb-header animate-on-scroll">
+      <span class="section-label">RAG Pipeline</span>
+      <h2 class="section-title">
+        Full <span class="gradient-text">RAG pipeline</span> built in
+      </h2>
+      <p class="section-subtitle">
+        Extract, chunk, embed, and upsert documents into any major vector database.
+        Build retrieval-augmented generation workflows without leaving your pipeline.
+      </p>
+    </div>
+
+    <div class="grid-2 vdb-grid">
+      <div class="card animate-on-scroll">
+        <div class="card-icon">🗄️</div>
+        <div class="card-title">5 Vector Databases</div>
+        <div class="vdb-list">
+          {vectorDBs.map((db) => (
+            <a href={db.url} target="_blank" rel="noopener" class="vdb-badge" style={`--db-color: ${db.color}; text-decoration: none; color: inherit;`}>
+              <span class="vdb-dot"></span>
+              {db.name}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div class="card animate-on-scroll" style="transition-delay: 80ms">
+        <div class="card-icon">✂️</div>
+        <div class="card-title">Chunking Strategies</div>
+        <div class="card-description" style="margin-bottom: 16px;">
+          Choose the right chunking strategy for your use case:
+        </div>
+        <div class="tag-list">
+          {chunkingStrategies.map((s) => <span class="tag">{s}</span>)}
+        </div>
+      </div>
+
+      <div class="card animate-on-scroll" style="transition-delay: 160ms">
+        <div class="card-icon">🧠</div>
+        <div class="card-title">Embedding Providers</div>
+        <div class="card-description" style="margin-bottom: 16px;">
+          Generate embeddings with cloud or local models:
+        </div>
+        <div class="tag-list">
+          {embeddingProviders.map((p) => <span class="tag tag-accent">{p}</span>)}
+        </div>
+      </div>
+
+      <div class="card animate-on-scroll" style="transition-delay: 240ms">
+        <div class="card-icon">📄</div>
+        <div class="card-title">Document Extraction</div>
+        <div class="card-description" style="margin-bottom: 16px;">
+          Extract text from virtually any document format:
+        </div>
+        <div class="tag-list">
+          {documentTypes.map((t) => <span class="tag">{t}</span>)}
+        </div>
+      </div>
+    </div>
+
+    <div class="rag-flow animate-on-scroll">
+      <div class="rag-flow-label">RAG Pipeline Flow</div>
+      <div class="rag-flow-steps">
+        <div class="rag-step">
+          <span class="rag-step-num">1</span>
+          <span>Document Extraction</span>
+        </div>
+        <div class="rag-arrow">→</div>
+        <div class="rag-step">
+          <span class="rag-step-num">2</span>
+          <span>Chunking</span>
+        </div>
+        <div class="rag-arrow">→</div>
+        <div class="rag-step">
+          <span class="rag-step-num">3</span>
+          <span>Embeddings</span>
+        </div>
+        <div class="rag-arrow">→</div>
+        <div class="rag-step">
+          <span class="rag-step-num">4</span>
+          <span>Vector Upsert</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .vdb-header {
+    margin-bottom: 64px;
+  }
+
+  .vdb-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .vdb-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .vdb-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--db-color);
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+  }
+
+  .tag-accent {
+    background: rgba(0, 180, 255, 0.08);
+    border-color: rgba(0, 180, 255, 0.2);
+    color: var(--accent);
+  }
+
+  .rag-flow {
+    margin-top: 48px;
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+  }
+
+  .rag-flow-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  .rag-flow-steps {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .rag-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: var(--radius-sm);
+    background: rgba(0, 180, 255, 0.06);
+    border: 1px solid rgba(0, 180, 255, 0.15);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .rag-step-num {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--gradient);
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .rag-arrow {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 768px) {
+    .rag-flow-steps {
+      flex-direction: column;
+    }
+
+    .rag-arrow {
+      transform: rotate(90deg);
+    }
+  }
+</style>

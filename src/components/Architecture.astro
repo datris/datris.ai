@@ -1,0 +1,438 @@
+---
+const ingestionSources = ['File Upload', 'MinIO', 'DB Pull', 'Kafka'];
+const stages = ['Preprocessor', 'Data Quality', 'Transformation'];
+const stores = [
+  'MinIO (Parquet/ORC)',
+  'PostgreSQL',
+  'MongoDB',
+  'Kafka',
+  'ActiveMQ',
+  'REST API',
+  'Qdrant',
+  'Weaviate',
+  'Milvus',
+  'Chroma',
+  'pgvector',
+];
+const mcpPush = ['Register Datasets', 'Upload Files', 'Trigger Processing', 'Configure Pipelines'];
+const mcpPull = ['Query PostgreSQL', 'Query MongoDB', 'Semantic Search', 'Monitor Jobs', 'Profile Data', 'Retrieve Results'];
+---
+
+<section id="architecture">
+  <div class="container">
+    <div class="arch-header animate-on-scroll">
+      <span class="section-label">Architecture</span>
+      <h2 class="section-title">
+        <span class="gradient-text">Push and pull</span> — one platform, two interfaces
+      </h2>
+      <p class="section-subtitle">
+        AI agents and humans ingest data through the pipeline, store it across databases and vector stores,
+        and retrieve it back — via API or MCP.
+      </p>
+    </div>
+
+    <!-- Ingestion Pipeline -->
+    <div class="arch-section-label animate-on-scroll">Ingestion Pipeline</div>
+    <div class="pipeline animate-on-scroll">
+      <div class="pipeline-group">
+        <div class="pipeline-group-label">Sources</div>
+        <div class="pipeline-nodes">
+          {ingestionSources.map((s) => <div class="pipeline-node source-node">{s}</div>)}
+        </div>
+      </div>
+
+      <div class="pipeline-arrow">
+        <svg width="40" height="24" viewBox="0 0 40 24" fill="none">
+          <path d="M0 12h32m0 0l-8-8m8 8l-8 8" stroke="url(#arrow-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs><linearGradient id="arrow-grad" x1="0" y1="12" x2="40" y2="12"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#00e5a0"/></linearGradient></defs>
+        </svg>
+      </div>
+
+      <div class="pipeline-group">
+        <div class="pipeline-group-label">Processing</div>
+        <div class="pipeline-stages">
+          {stages.map((s, i) => (
+            <div class="pipeline-stage">
+              <span class="stage-num">{i + 1}</span>
+              {s}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="pipeline-arrow">
+        <svg width="40" height="24" viewBox="0 0 40 24" fill="none">
+          <path d="M0 12h32m0 0l-8-8m8 8l-8 8" stroke="url(#arrow-grad2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs><linearGradient id="arrow-grad2" x1="0" y1="12" x2="40" y2="12"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#00e5a0"/></linearGradient></defs>
+        </svg>
+      </div>
+
+      <div class="pipeline-group destinations-group">
+        <div class="pipeline-group-label">Storage</div>
+        <div class="pipeline-dest-grid">
+          {stores.map((d) => <div class="pipeline-node dest-node">{d}</div>)}
+        </div>
+      </div>
+    </div>
+
+    <!-- MCP Interface -->
+    <div class="arch-section-label animate-on-scroll">MCP — AI Agent Interface</div>
+    <div class="mcp-interface animate-on-scroll">
+      <div class="mcp-side">
+        <div class="mcp-side-label push-label">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5m0 0l-7 7m7-7l7 7"/></svg>
+          Push
+        </div>
+        <div class="mcp-items">
+          {mcpPush.map((item) => <div class="mcp-item push-item">{item}</div>)}
+        </div>
+      </div>
+
+      <div class="mcp-center">
+        <div class="mcp-hub">
+          <div class="mcp-hub-inner">
+            <span class="mcp-hub-label">MCP</span>
+            <span class="mcp-hub-sub">stdio · SSE</span>
+          </div>
+        </div>
+        <div class="mcp-agents">
+          <span class="mcp-agent-badge">Claude</span>
+          <span class="mcp-agent-badge">Cursor</span>
+          <span class="mcp-agent-badge">OpenClaw</span>
+          <span class="mcp-agent-badge">Any MCP Agent</span>
+        </div>
+      </div>
+
+      <div class="mcp-side">
+        <div class="mcp-side-label pull-label">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14m0 0l7-7m-7 7l-7-7"/></svg>
+          Pull
+        </div>
+        <div class="mcp-items">
+          {mcpPull.map((item) => <div class="mcp-item pull-item">{item}</div>)}
+        </div>
+      </div>
+    </div>
+
+    <!-- Notifications -->
+    <div class="pipeline-notify animate-on-scroll">
+      <div class="pipeline-group-label">Notifications</div>
+      <div class="pipeline-node notify-node">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
+        Email · Slack · Webhook
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .arch-header {
+    margin-bottom: 64px;
+  }
+
+  .pipeline {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 24px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .pipeline-group {
+    flex-shrink: 0;
+  }
+
+  .pipeline-group-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  .pipeline-nodes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .pipeline-node {
+    padding: 10px 18px;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 500;
+    white-space: nowrap;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    transition: all var(--transition-base);
+  }
+
+  .pipeline-node:hover {
+    border-color: var(--border-color-hover);
+    box-shadow: var(--glow);
+  }
+
+  .source-node {
+    border-left: 3px solid var(--accent);
+  }
+
+  .pipeline-arrow {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding-top: 32px;
+  }
+
+  .pipeline-stages {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .pipeline-stage {
+    padding: 12px 20px;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: rgba(0, 180, 255, 0.08);
+    border: 1px solid rgba(0, 180, 255, 0.2);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+  }
+
+  .stage-num {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--gradient);
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .destinations-group {
+    max-width: 400px;
+  }
+
+  .pipeline-dest-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .dest-node {
+    border-right: 3px solid var(--accent-secondary);
+    font-size: 0.75rem;
+    padding: 8px 14px;
+  }
+
+  .pipeline-notify {
+    flex-shrink: 0;
+    padding-top: 24px;
+    text-align: center;
+  }
+
+  .pipeline-notify .pipeline-node {
+    display: inline-flex;
+  }
+
+  .notify-node {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    border-color: rgba(0, 229, 160, 0.2);
+    font-size: 0.75rem;
+  }
+
+  /* Section labels */
+  .arch-section-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-top: 48px;
+    margin-bottom: 8px;
+    padding-left: 4px;
+  }
+
+  /* MCP Interface */
+  .mcp-interface {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    padding: 32px 0;
+    justify-content: flex-start;
+  }
+
+  .mcp-side {
+    flex: 1;
+    max-width: 260px;
+  }
+
+  .mcp-side-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+
+  .push-label {
+    color: #00b4ff;
+  }
+
+  .pull-label {
+    color: #00e5a0;
+  }
+
+  .mcp-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .mcp-item {
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    transition: all var(--transition-base);
+  }
+
+  .mcp-item:hover {
+    border-color: var(--border-color-hover);
+    box-shadow: var(--glow);
+  }
+
+  .push-item {
+    border-left: 3px solid #00b4ff;
+  }
+
+  .pull-item {
+    border-right: 3px solid #00e5a0;
+  }
+
+  .mcp-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+    padding-top: 24px;
+  }
+
+  .mcp-hub {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 180, 255, 0.15), rgba(0, 229, 160, 0.15));
+    border: 2px solid rgba(0, 180, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .mcp-hub::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 180, 255, 0.15);
+  }
+
+  .mcp-hub-inner {
+    text-align: center;
+  }
+
+  .mcp-hub-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 800;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .mcp-hub-sub {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .mcp-agents {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    max-width: 180px;
+  }
+
+  .mcp-agent-badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    background: rgba(0, 180, 255, 0.1);
+    border: 1px solid rgba(0, 180, 255, 0.25);
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 1024px) {
+    .pipeline {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .pipeline-arrow {
+      padding-top: 0;
+      justify-content: center;
+      transform: rotate(90deg);
+    }
+
+    .pipeline-dest-grid {
+      max-width: 100%;
+    }
+
+    .destinations-group {
+      max-width: 100%;
+    }
+
+    .mcp-interface {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .mcp-side {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .pull-item {
+      border-right: none;
+      border-left: 3px solid #00e5a0;
+    }
+  }
+</style>
