@@ -4,7 +4,7 @@ description: "AI agents are becoming autonomous operators of data infrastructure
 date: "2026-03-22"
 author: "Todd Fearn"
 tags: ["ai-agents", "mcp", "data-platform"]
-draft: true
+draft: false
 ---
 
 The term "AI-native" gets thrown around a lot. Usually it means "we added an LLM endpoint." That's not what we mean by agent-native.
@@ -59,4 +59,4 @@ If you're building data pipelines and thinking about how AI agents fit into your
 
 ---
 
-*Todd Fearn is the founder of Datris.ai and has been building data infrastructure for financial services for 25+ years, including at Goldman Sachs, Bridgewater Associates, Deutsche Bank, and Freddie Mac.*
+*Todd Fearn is the founder of Datris.ai and has been building AI solutions and data infrastructure for financial services for 25+ years, including at Goldman Sachs, Bridgewater Associates, Deutsche Bank, Freddie Mac and others.*
