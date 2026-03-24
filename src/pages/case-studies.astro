@@ -1,0 +1,427 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Case Studies — Datris.ai" description="See how leading financial institutions use Datris to centralize data, build enterprise data lakes, and accelerate AI/ML initiatives.">
+  <Nav />
+  <main>
+    <!-- Hero -->
+    <section class="cs-hero">
+      <div class="bg-grid"></div>
+      <div class="bg-glow" style="top: -200px; left: 50%; transform: translateX(-50%); background: var(--accent);"></div>
+      <div class="container">
+        <span class="section-label">Case Studies</span>
+        <h1 class="section-title">Proven at <span class="gradient-text">enterprise scale</span></h1>
+        <p class="section-subtitle">
+          From pension funds managing $200B+ to government-sponsored enterprises processing millions of records — 
+          our platform handles the data challenges that matter.
+        </p>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- Case Study 1: Pension Fund -->
+    <section class="cs-detail">
+      <div class="container">
+        <div class="cs-header">
+          <div class="cs-badge-row">
+            <span class="badge">Financial Services</span>
+            <span class="badge">Data Lake</span>
+            <span class="badge">AWS</span>
+          </div>
+          <h2 class="section-title">Enterprise Data Lake & Pipeline<br /><span class="gradient-text">$200B+ Pension Fund</span></h2>
+        </div>
+
+        <div class="cs-grid">
+          <div class="cs-main">
+            <div class="cs-section">
+              <h3>The Challenge</h3>
+              <p>
+                This large pension fund managed over $200 billion USD across public equities, private equities, 
+                real estate, infrastructure, and fixed income. Their data strategy had evolved organically — 
+                individual teams built local solutions, resulting in a fragmented landscape of siloed data ponds 
+                with no enterprise-wide visibility.
+              </p>
+              <p>
+                Investment departments and core services groups needed timely access to all existing data, 
+                the ability to introduce new datasets with ease, and a governance model that supported 
+                cross-fund data sharing.
+              </p>
+            </div>
+
+            <div class="cs-section">
+              <h3>The Solution</h3>
+              <p>
+                We designed and built a cloud-based data ecosystem on AWS — a comprehensive data lake and 
+                pipeline that became the central nervous system for data across the fund.
+              </p>
+              <div class="cs-solution-grid">
+                <div class="cs-solution-item">
+                  <div class="cs-solution-icon">🏗️</div>
+                  <div>
+                    <strong>Cloud Infrastructure</strong>
+                    <p>Project-based AWS account structure with Transit VPC networking, secure VPC endpoints, 
+                    and infrastructure-as-code (Terraform) for repeatable deployments.</p>
+                  </div>
+                </div>
+                <div class="cs-solution-item">
+                  <div class="cs-solution-icon">⚡</div>
+                  <div>
+                    <strong>Data Pipeline (ETL)</strong>
+                    <p>Automated sourcing, processing, and entitlement of data. Standard suite of tools 
+                    enabling rapid onboarding of new data sources with simultaneous multi-source processing.</p>
+                  </div>
+                </div>
+                <div class="cs-solution-item">
+                  <div class="cs-solution-icon">🗄️</div>
+                  <div>
+                    <strong>Enterprise Data Lake</strong>
+                    <p>Centralized repository for structured and unstructured data at any scale. 
+                    Store as-is, then run dashboards, big data processing, real-time analytics, and ML.</p>
+                  </div>
+                </div>
+                <div class="cs-solution-item">
+                  <div class="cs-solution-icon">📖</div>
+                  <div>
+                    <strong>Data Catalog & API</strong>
+                    <p>Searchable glossary of all available data with source definitions and entitlements. 
+                    RESTful API enabling both application integration and analyst self-service.</p>
+                  </div>
+                </div>
+                <div class="cs-solution-item">
+                  <div class="cs-solution-icon">🔒</div>
+                  <div>
+                    <strong>Security Backbone</strong>
+                    <p>Centralized security monitoring, identity and access management, and audit/compliance 
+                    monitoring. All traffic stays within the cloud network — no public IPs required.</p>
+                  </div>
+                </div>
+                <div class="cs-solution-item">
+                  <div class="cs-solution-icon">🧪</div>
+                  <div>
+                    <strong>Sandbox Environment</strong>
+                    <p>Dedicated experimentation zone with full data lake functionality for introducing 
+                    new datasets and technologies without impacting production.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cs-section">
+              <h3>The Impact</h3>
+              <p>
+                Investment groups across the fund can now discover, access, and perform analytics on 
+                hundreds of datasets through the data catalog. Analysts access data directly via API into 
+                their environments or leverage scalable cloud analytics (Spark) for intensive algorithms 
+                across multiple datasets.
+              </p>
+              <p>
+                The CI/CD pipeline reduced software delivery from months to hours. End-user involvement 
+                during continuous development led to rapid feature iteration and usability improvements.
+              </p>
+            </div>
+          </div>
+
+          <div class="cs-sidebar">
+            <div class="cs-stat-card card">
+              <div class="cs-stat-value">$200B+</div>
+              <div class="cs-stat-label">Assets Under Management</div>
+            </div>
+            <div class="cs-stat-card card">
+              <div class="cs-stat-value">100s</div>
+              <div class="cs-stat-label">Datasets Catalogued</div>
+            </div>
+            <div class="cs-stat-card card">
+              <div class="cs-stat-value">Months → Hours</div>
+              <div class="cs-stat-label">Deployment Time Reduction</div>
+            </div>
+            <div class="cs-tech-card card">
+              <h4>Technology Stack</h4>
+              <div class="cs-tech-tags">
+                <span class="highlight-tag">AWS</span>
+                <span class="highlight-tag">S3</span>
+                <span class="highlight-tag">Lambda</span>
+                <span class="highlight-tag">Transit VPC</span>
+                <span class="highlight-tag">Terraform</span>
+                <span class="highlight-tag">Spark</span>
+                <span class="highlight-tag">CI/CD</span>
+                <span class="highlight-tag">Data Catalog</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- Case Study 2: GSE -->
+    <section class="cs-detail">
+      <div class="container">
+        <div class="cs-header">
+          <div class="cs-badge-row">
+            <span class="badge">Government</span>
+            <span class="badge">Data Migration</span>
+            <span class="badge">AWS</span>
+          </div>
+          <h2 class="section-title">Cloud Data Centralization<br /><span class="gradient-text">Government-Sponsored Enterprise</span></h2>
+        </div>
+
+        <div class="cs-grid">
+          <div class="cs-main">
+            <div class="cs-section">
+              <h3>The Challenge</h3>
+              <p>
+                This large government-sponsored enterprise held vast amounts of mortgage, investment, and 
+                personal data across numerous data warehouses and Hadoop environments. The firm maintained 
+                40-50 people across distinct teams — each with replicated skill sets — responsible for 
+                managing individual data environments.
+              </p>
+              <p>
+                The legacy infrastructure was expensive, fragmented, and made enterprise-wide data 
+                utilization nearly impossible.
+              </p>
+            </div>
+
+            <div class="cs-section">
+              <h3>The Solution</h3>
+              <p>
+                We deployed the Datris Data Pipeline to centralize all data within AWS S3, while 
+                integrating modern cloud technologies including Snowflake and MongoDB. The pipeline 
+                automated the migration from legacy data warehouses to cloud-native object storage — 
+                dramatically reducing infrastructure costs while enabling organization-wide data access.
+              </p>
+              <p>
+                By leveraging S3 object-store technology at a fraction of the cost of traditional data 
+                warehousing, the firm reallocated skilled employees from maintenance roles to 
+                higher-value tasks.
+              </p>
+            </div>
+
+            <div class="cs-section">
+              <h3>The Impact</h3>
+              <p>
+                Now in its fourth year of implementation, this multi-year strategic initiative has 
+                delivered strong, measurable results: reduced infrastructure costs, unified data access 
+                across the enterprise, and accelerated the path to AI/ML-driven analytics.
+              </p>
+            </div>
+          </div>
+
+          <div class="cs-sidebar">
+            <div class="cs-stat-card card">
+              <div class="cs-stat-value">40-50</div>
+              <div class="cs-stat-label">Team Members Reallocated</div>
+            </div>
+            <div class="cs-stat-card card">
+              <div class="cs-stat-value">4 Years</div>
+              <div class="cs-stat-label">Ongoing Engagement</div>
+            </div>
+            <div class="cs-stat-card card">
+              <div class="cs-stat-value">~90%</div>
+              <div class="cs-stat-label">Storage Cost Reduction</div>
+            </div>
+            <div class="cs-tech-card card">
+              <h4>Technology Stack</h4>
+              <div class="cs-tech-tags">
+                <span class="highlight-tag">AWS S3</span>
+                <span class="highlight-tag">Snowflake</span>
+                <span class="highlight-tag">MongoDB</span>
+                <span class="highlight-tag">Hadoop Migration</span>
+                <span class="highlight-tag">Data Pipeline</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- CTA -->
+    <section class="cs-cta">
+      <div class="container" style="text-align: center;">
+        <h2 class="section-title">Your data pipeline <span class="gradient-text">starts here</span></h2>
+        <p class="section-subtitle" style="margin: 0 auto 32px;">
+          Open source. Self-hosted. Battle-tested at the world's largest financial institutions.
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="https://github.com/datris/datris-platform-oss" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            Get Started on GitHub
+          </a>
+          <a href="/about" class="btn btn-secondary">Meet the Team →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .cs-hero {
+    padding: 160px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cs-header {
+    margin-bottom: 48px;
+  }
+
+  .cs-badge-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .cs-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .cs-main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .cs-section h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+  }
+
+  .cs-section p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+
+  .cs-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  .cs-solution-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .cs-solution-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .cs-solution-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .cs-solution-item strong {
+    display: block;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+  }
+
+  .cs-solution-item p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .cs-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: sticky;
+    top: 88px;
+  }
+
+  .cs-stat-card {
+    padding: 24px;
+    text-align: center;
+  }
+
+  .cs-stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4px;
+  }
+
+  .cs-stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .cs-tech-card {
+    padding: 24px;
+  }
+
+  .cs-tech-card h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+  }
+
+  .cs-tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .highlight-tag {
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: rgba(0, 180, 255, 0.08);
+    border: 1px solid rgba(0, 180, 255, 0.15);
+    color: var(--accent);
+  }
+
+  .cs-cta {
+    padding: 100px 0;
+  }
+
+  @media (max-width: 768px) {
+    .cs-hero {
+      padding: 120px 0 60px;
+    }
+
+    .cs-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cs-sidebar {
+      position: static;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cs-sidebar {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
