@@ -4,7 +4,7 @@ description: "Datris Platform ships with a built-in MCP server, turning every pi
 date: "2026-03-24"
 author: "Todd Fearn"
 tags: ["mcp", "ai-agents", "datris-platform", "data-pipelines"]
-draft: true
+draft: false
 ---
 
 Here's something that would have sounded absurd five years ago: your data pipeline should be a tool that AI agents can pick up and use.
