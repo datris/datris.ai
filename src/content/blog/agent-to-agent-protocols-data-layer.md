@@ -4,7 +4,7 @@ description: "As A2A, MCP, and ACP mature, AI agents won't just use tools — th
 date: "2026-03-25"
 author: "Todd Fearn"
 tags: ["ai-agents", "a2a", "mcp", "data-infrastructure"]
-draft: true
+draft: false
 ---
 
 We spent the last year getting excited about agents using tools. MCP gave us a standard way for an agent to discover a tool, understand its interface, and invoke it. That was a genuine leap forward — I wrote about [what it means for data pipelines](/blog/mcp-server-data-pipelines-ai-agents) last week.
