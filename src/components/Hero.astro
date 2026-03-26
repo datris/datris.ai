@@ -51,11 +51,14 @@
         </div>
         <div class="terminal-body">
           <code>
-            <span class="t-muted">$</span> <span class="t-cmd">datris</span> process <span class="t-flag">--ai-validate</span> sales_data.csv<br/>
-            <span class="t-muted">  ├</span> <span class="t-ok">✓</span> Schema auto-generated <span class="t-dim">(14 columns detected)</span><br/>
-            <span class="t-muted">  ├</span> <span class="t-ok">✓</span> AI quality rules applied <span class="t-dim">(3 rules from plain English)</span><br/>
-            <span class="t-muted">  ├</span> <span class="t-ok">✓</span> Transformed 12,847 rows <span class="t-dim">(2 AI transforms)</span><br/>
-            <span class="t-muted">  ├</span> <span class="t-ok">✓</span> Loaded to PostgreSQL + Qdrant<br/>
+            <span class="t-muted">$</span> <span class="t-cmd">datris</span> ingest stock-price-data.csv <span class="t-flag">--dest</span> postgres \<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-flag">--ai-validate</span> <span class="t-str">"all prices must be positive"</span> \<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-flag">--ai-transform</span> <span class="t-str">"uppercase all ticker symbols"</span><br/>
+            <span class="t-muted">  ├</span> <span class="t-ok">✓</span> Pipeline created <span class="t-dim">(stock_price_data)</span><br/>
+            <span class="t-muted">  ├</span> <span class="t-ok">✓</span> Schema auto-detected <span class="t-dim">(14 columns)</span><br/>
+            <span class="t-muted">  ├</span> <span class="t-ok">✓</span> AI validation passed <span class="t-dim">(all prices positive)</span><br/>
+            <span class="t-muted">  ├</span> <span class="t-ok">✓</span> AI transform applied <span class="t-dim">(12,847 rows)</span><br/>
+            <span class="t-muted">  ├</span> <span class="t-ok">✓</span> Loaded to PostgreSQL<br/>
             <span class="t-muted">  └</span> <span class="t-accent">Done</span> in 4.2s
           </code>
         </div>
@@ -170,6 +173,7 @@
   .t-flag { color: var(--accent-secondary); }
   .t-ok { color: #00e5a0; }
   .t-dim { color: var(--text-muted); }
+  .t-str { color: #fbbf24; }
   .t-accent { color: var(--accent); font-weight: 600; }
 
   @media (max-width: 768px) {

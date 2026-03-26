@@ -38,9 +38,12 @@ const stack = [
       <div class="infra-cta-inner">
         <code class="infra-cmd">
           <span class="t-muted">$</span> git clone https://github.com/datris/datris-platform-oss.git<br />
-          <span class="t-muted">$</span> docker compose up -d
+          <span class="t-muted">$</span> cp .env.example .env<br />
+          <span class="t-comment"># Add your API key (at least one required for AI features)</span><br />
+          <span class="t-muted">$</span> docker compose up -d<br />
+          <span class="t-muted">$</span> curl http://localhost:8080/api/v1/version
         </code>
-        <p class="infra-cta-text">Two commands. Full pipeline. Your infrastructure.</p>
+        <p class="infra-cta-text">Clone. Configure. Launch. Your full pipeline in under a minute.</p>
       </div>
     </div>
   </div>
@@ -92,8 +95,11 @@ const stack = [
     border: 1px solid var(--border-color);
     font-family: var(--font-mono);
     font-size: 1rem;
+    line-height: 1.8;
     margin-bottom: 16px;
   }
+
+  .t-comment { color: #6b7280; font-style: italic; }
 
   .infra-cta-text {
     color: var(--text-secondary);
