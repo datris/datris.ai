@@ -37,9 +37,10 @@ const stack = [
     <div class="infra-cta animate-on-scroll">
       <div class="infra-cta-inner">
         <code class="infra-cmd">
+          <span class="t-muted">$</span> git clone https://github.com/datris/datris-platform-oss.git<br />
           <span class="t-muted">$</span> docker compose up -d
         </code>
-        <p class="infra-cta-text">One command. Full pipeline. Your infrastructure.</p>
+        <p class="infra-cta-text">Two commands. Full pipeline. Your infrastructure.</p>
       </div>
     </div>
   </div>
@@ -84,6 +85,7 @@ const stack = [
 
   .infra-cmd {
     display: inline-block;
+    text-align: left;
     padding: 12px 28px;
     border-radius: var(--radius-sm);
     background: rgba(0, 0, 0, 0.3);

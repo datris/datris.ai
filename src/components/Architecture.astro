@@ -1,6 +1,6 @@
 ---
-const ingestionSources = ['File Upload', 'MinIO', 'DB Pull', 'Kafka'];
-const stages = ['Preprocessor', 'Data Quality', 'Transformation'];
+const ingestionSources = ['Data Upload', 'MinIO', 'DB Pull', 'Kafka'];
+const stages = ['Preprocessor', 'Data Quality (AI)', 'Transformation (AI)'];
 const stores = [
   'MinIO (Parquet/ORC)',
   'PostgreSQL',
@@ -14,8 +14,8 @@ const stores = [
   'Chroma',
   'pgvector',
 ];
-const mcpPush = ['Register Datasets', 'Upload Files', 'Trigger Processing', 'Configure Pipelines'];
-const mcpPull = ['Query PostgreSQL', 'Query MongoDB', 'Semantic Search', 'Monitor Jobs', 'Profile Data', 'Retrieve Results'];
+const mcpPush = ['Create Pipelines', 'Upload Data', 'Trigger Processing', 'Configure Pipelines'];
+const mcpPull = ['Query PostgreSQL', 'Query MongoDB', 'Semantic Search (Vector DB)', 'Monitor Jobs', 'Profile Data', 'Retrieve Results'];
 ---
 
 <section id="architecture">
@@ -27,7 +27,7 @@ const mcpPull = ['Query PostgreSQL', 'Query MongoDB', 'Semantic Search', 'Monito
       </h2>
       <p class="section-subtitle">
         AI agents and humans ingest data through the pipeline, store it across databases and vector stores,
-        and retrieve it back — via API or MCP.
+        and retrieve it back — via MCP or API.
       </p>
     </div>
 
@@ -73,6 +73,21 @@ const mcpPull = ['Query PostgreSQL', 'Query MongoDB', 'Semantic Search', 'Monito
           {stores.map((d) => <div class="pipeline-node dest-node">{d}</div>)}
         </div>
       </div>
+
+      <div class="pipeline-arrow">
+        <svg width="40" height="24" viewBox="0 0 40 24" fill="none">
+          <path d="M0 12h32m0 0l-8-8m8 8l-8 8" stroke="url(#arrow-grad3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs><linearGradient id="arrow-grad3" x1="0" y1="12" x2="40" y2="12"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#00e5a0"/></linearGradient></defs>
+        </svg>
+      </div>
+
+      <div class="pipeline-group">
+        <div class="pipeline-group-label">Notification</div>
+        <div class="pipeline-node notify-node">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
+          Email · Slack · Webhook
+        </div>
+      </div>
     </div>
 
     <!-- MCP Interface -->
@@ -114,14 +129,6 @@ const mcpPull = ['Query PostgreSQL', 'Query MongoDB', 'Semantic Search', 'Monito
       </div>
     </div>
 
-    <!-- Notifications -->
-    <div class="pipeline-notify animate-on-scroll">
-      <div class="pipeline-group-label">Notifications</div>
-      <div class="pipeline-node notify-node">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
-        Email · Slack · Webhook
-      </div>
-    </div>
   </div>
 </section>
 
