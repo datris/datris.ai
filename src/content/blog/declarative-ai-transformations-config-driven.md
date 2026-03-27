@@ -4,7 +4,7 @@ description: "How config-driven pipelines and AI transformations let agents auto
 date: "2026-03-27"
 author: Todd Fearn
 tags: ["ai-transformations", "config-driven", "datris-platform", "agents"]
-draft: true
+draft: false
 ---
 
 In the old world of data engineering, you wrote ETL jobs. Someone sat down, opened a notebook or IDE, and hand-coded every transformation step. If the schema changed, you fixed the code. If the business logic shifted, you refactored. If you needed a new pipeline, you started from scratch.
